@@ -112,9 +112,14 @@ class vim(
     ensure => $package_ensure,
   }
 
-  file { $conf_file:
-    ensure  => $file_ensure,
+  concat { $conf_file,
+    ensure => $file_ensure,
+  }
+
+  concat::fragment { 'main':
+    target  => $conf_file,
     content => template('vim/vimrc.erb'),
+    order   => '001',
   }
 
   if $set_as_default {
