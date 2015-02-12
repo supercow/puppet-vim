@@ -63,6 +63,9 @@
 #     Hash containing key maps that will be set on VIM.
 #     Default: {}
 #
+#   [*lines*]
+#     Array containing lines to be inserted verbatim into vimrc
+#
 # Actions:
 #   Installs vim and, if enabled, set it as default editor.
 #
@@ -88,6 +91,7 @@ class vim(
   $opt_syntax       = $vim::params::syntax,
   $opt_misc         = $vim::params::misc,
   $opt_maps         = $vim::params::maps,
+  $lines            = $vim::params::lines,
 ) inherits vim::params {
 
   case $ensure {
