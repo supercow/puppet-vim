@@ -112,14 +112,20 @@ class vim(
     ensure => $package_ensure,
   }
 
-  concat { $conf_file,
-    ensure => $file_ensure,
+  concat { $conf_file:
+    ensure => present,
   }
 
   concat::fragment { 'main':
     target  => $conf_file,
     content => template('vim/vimrc.erb'),
     order   => '001',
+  }
+
+  concat::fragment { 'vundle_end':
+    target  => $conf_file,
+    content => template('vim/vundle_end.erb'),
+    order   => '999',
   }
 
   if $set_as_default {

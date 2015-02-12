@@ -37,3 +37,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 <% end -%>
+
+set rtp+=/etc/vim/bundle/vundle
+call vundle#begin('/etc/vim/bundle')
+

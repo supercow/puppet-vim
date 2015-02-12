@@ -1,0 +1,8 @@
+<%
+  if @args != {} then
+  args = ", {#{args.to_a.map{|a| a.map{|e| "\'#{e}\'"}.join(': ')}.join(', ')}}"
+  end
+-%>
+" <%= @comment %>
+Plugin '<%= @source %>'<%= args %>
+
