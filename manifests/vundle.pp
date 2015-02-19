@@ -1,4 +1,4 @@
-# == Class: vim::vundle
+# == Class: ::vim::vundle
 #
 # Manages base installa and config for Vundle
 #
@@ -15,7 +15,7 @@ class vim::vundle {
   vcsrepo { '/etc/vim/bundle/vundle':
     ensure   => present,
     provider => 'git',
-    source   => 'http://github.com/gmarik/vundle.git',
+    source   => 'https://github.com/gmarik/vundle.git',
   }
 
   exec { 'install vundle plugins':
