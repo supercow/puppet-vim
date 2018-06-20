@@ -5,7 +5,6 @@ define vim::vundle::plugin(
   $target = '/etc/vim/vimrc',
 ) {
   concat::fragment { "vundle_${name}":
-    ensure  => present,
     target  => $::vim::conf_file,
     order   => '020',
     content => template('vim/vundle_plugin.erb'),
